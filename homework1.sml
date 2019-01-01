@@ -4,6 +4,7 @@ fun is_older(date1:int*int*int,date2:int*int*int)=
        andalso (#3 date1) < (#3 date2)
     then true
     else false
+	     
 fun number_in_month(dates:(int*int*int)list,month)=
     if null dates
     then 0
@@ -14,3 +15,9 @@ fun number_in_month(dates:(int*int*int)list,month)=
 	    then number + 1
 	    else number
 	end
+
+fun number_in_months(dates:(int*int*int)list,months:int list)=
+    if null months
+    then 0
+    else
+	number_in_month(dates,hd(months))+number_in_months(dates,tl months)
